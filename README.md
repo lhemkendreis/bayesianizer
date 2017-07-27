@@ -1,2 +1,2 @@
-# drbayesian
-A python script to turn a data base (.csv) of into a bayesian network (.xbif).
+# bayesianizer
+A python script to turn a data base (.csv) into a bayesian network (.xbif).
