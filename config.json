@@ -1,0 +1,241 @@
+/* PubMed ID
+URL
+PDF
+First Author
+Authors
+Year
+Journal
+Judgement
+Outcome category
+Outcome subcategory
+Animal
+Animal subtype
+Animal age
+Animal gender
+Animal weight
+Injury height
+Injury type
+Outcome name
+Outcome further detail name
+Outcome further detail value
+Injury location
+Injury device
+Injury device detail
+Treatment type
+Treatment detail
+Treatment application
+Treatment  dosage
+Injured treated
+Injured control
+Sham control
+Trend
+Timepoint
+Animal weight, lightest (g)
+Animal weight, heaviest (g)
+BBB timepoint (days)
+BBB value (Treated)
+BBB value (Control) */
+
+
+{
+	"preferences": 
+		{
+			// "output_file_path": 
+			"csv_delimiter": "\t",
+			"grid_size_x": 200,
+			"grid_size_y": 150,
+			"data_threshold": 0
+		},
+	"nodes": 
+		[
+			{
+				"name": "Animal", 
+				"position": "(1/2)",
+				"values": 
+					[
+						"Rat",
+						"Guinea Pig",
+						"Mouse",
+						"Dog",
+						"Rabbit",
+						"Cat",
+						"Monkey"
+					]
+			},
+			// {
+			// 	"name": "Animal_Subtype", 
+			// 	"csv_name": "Animal subtype", 
+			// 	"position": "(2/2)",
+			// 	"values": 
+			// 		[
+			// 			"SD",
+			// 			"Wistar",
+			// 			"Not defined",
+			// 			"Long-Evans",
+			// 			"albino",
+			// 			"CD-1",
+			// 			"Fischer",
+			// 			"Lewis",
+			// 			"C57/BL6",
+			// 			"C57/BL6beta cR knockout",
+			// 			"Various",
+			// 			"New Zeland",
+			// 			"B6.129",
+			// 			"Lister hooded",
+			// 			"Macaque",
+			// 			"YFP-H"
+			// 		]
+			// },
+			{
+				"name": "Injury_Type", 
+				"csv_name": "Injury type", 
+				"position": "(1/3)",
+				"values": 
+					[
+						"Contusion", 
+						"Compression", 
+						"Partial transection",
+						"Complete transection",
+						"Crush",
+						"Aspiration lesion"
+					]
+			},
+			{
+				"name": "Injury_Height", 
+				"csv_name": "Injury height", 
+				"position": "(1/4)",
+				"values": 
+					[
+						"Thoracic",
+						"Cervical"
+					]
+			},
+			{
+				"name": "Treatment_Detail", 
+				"csv_name": "Treatment detail", 
+				"position": "(1/5)",
+				"values": 
+					[
+						"Hypothermia",
+						"Indomethacin",
+						"BW755C",
+						"Lipopolysaccharide",
+						"Acetylsalicylic acid",
+						"Steroid",
+						"Riluzole",
+						"SC58125",
+						"Magnesium",
+						"Progesterone",
+						"Chondroitinase ABC",
+						"Anti-CD11d Antibody",
+						"NS-398",
+						"Polyethylene Glycol (PEG)",
+						"Erythropoietin",
+						"Ibuprofen",
+						"Minocycline",
+						"Celebocid",
+						"Estrogen",
+						"Lithium chloride",
+						"Atorvastatin (AT)",
+						"Inosine",
+						"Anti-NG2 Antibody",
+						"Pioglitazone",
+						"Iloprost",
+						"Human serum albumin",
+						"Methylprednisolone (MP)",
+						"NT-3 lentivirus",
+						"Erythropoietin (carbamylated)",
+						"Deactivated Chondroitinase ABC",
+						"NOGO receptor antagonist",
+						"Anti-Nogo-A Antibody",
+						"Darbepoetin",
+						"Cyclosporine-A",
+						"Melatonin",
+						"Ketamine",
+						"Vimentin anti-sense cDNA"
+					]
+			},
+			{
+				"name": "Treatment_Type", 
+				"csv_name": "Treatment type", 
+				"position": "(1/5)",
+				"values": 
+					[
+						"Systemic",
+						"Local"
+					]
+			},
+			// {
+			// 	"name": "Animal_Gender", 
+			// 	"csv_name": "Animal gender", 
+			// 	"position": "(1/6)",
+			// 	"values": 
+			// 		[
+			// 			"Female",
+			// 			"Male",
+			// 			"Not defined",
+			// 			"Male and female"
+			// 		]
+			// },
+			{
+				"name": "Outcome_Category", 
+				"csv_name": "Outcome category", 
+				"position": "(1/7)",
+				"values": 
+					[
+						"Non-functional",
+						"Functional"
+					]
+			},
+			{
+				"name": "Outcome_Subcategory", 
+				"csv_name": "Outcome subcategory", 
+				"position": "(2/7)",
+				"values": 
+					[
+						"Secondary degeneration",
+						"Locomotor test",
+						"Electrophysiology",
+						"Sensory test",
+						"Inflammation",
+						"Physiology",
+						"Molecular changes",
+						"Neuronal regeneration",
+						"Neuroprotection",
+						"Reflex",
+						"Non-neuronal cell changes"
+					]
+			},
+			{
+				"name": "Judgement", 
+				"position": "(3/4)",
+				"values": 
+					[
+						"Positive",
+						"Negative",
+						"No effect"
+					]
+			}
+		],
+	"edges": 
+		[
+			// -- directly related nodes
+			"Animal -> Judgement",
+			// "Animal_Subtype -> Judgement",
+			"Outcome_Category -> Outcome_Subcategory",
+			"Outcome_Subcategory -> Judgement",
+			"Treatment_Type -> Treatment_Detail",
+			// "Animal_Subtype -> Treatment_Detail",
+			// "Animal_Subtype -> Injury_Type",
+			// "Animal_Subtype -> Injury_Height",
+
+			// X -> Judgement
+			"Treatment_Detail -> Judgement",
+			"Treatment_Detail -> Outcome_Subcategory",
+			// "Animal_Gender -> Judgement",
+			"Injury_Type -> Judgement",
+			"Injury_Height -> Judgement"
+			// "Treatment_Detail -> Judgement"
+		]
+}
+
